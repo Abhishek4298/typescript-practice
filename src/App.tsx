@@ -1,10 +1,21 @@
+import { useState } from "react";
+import Counter from "./components/Counter";
+
 import "./App.css";
-import MyButton from "./components/MyButton";
-export default function MyApp() {
+
+function MyApp() {
+  const [count, setCount] = useState(0);
+
+  const handleAppIncrement = (newValue: number) => {
+    setCount(newValue);
+  };
+
   return (
     <div>
-      <h1>Welcome to my app</h1>
-      <MyButton title="I'm a button" />
+      <h1>Welcome to Counter App</h1>
+      <Counter title="Count" initialValue={count} onIncrement={handleAppIncrement} />
     </div>
   );
 }
+
+export default MyApp;
